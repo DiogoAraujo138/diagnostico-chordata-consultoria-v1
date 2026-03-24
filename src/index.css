@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Ecossistema Chordata — diagnostic palette */
+    --background: 222 45% 11%;
+    --foreground: 210 40% 97%;
+
+    --card: 222 40% 14%;
+    --card-foreground: 210 40% 97%;
+
+    --popover: 222 40% 14%;
+    --popover-foreground: 210 40% 97%;
+
+    --primary: 214 60% 57%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 30% 18%;
+    --secondary-foreground: 210 40% 97%;
+
+    --muted: 222 20% 18%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 214 80% 70%;
+    --accent-foreground: 222 45% 11%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 20% 22%;
+    --input: 222 20% 22%;
+    --ring: 214 60% 57%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 222 45% 11%;
+    --sidebar-foreground: 210 40% 97%;
+    --sidebar-primary: 214 60% 57%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 40% 14%;
+    --sidebar-accent-foreground: 210 40% 97%;
+    --sidebar-border: 222 20% 22%;
+    --sidebar-ring: 214 60% 57%;
+
+    /* Chart colors per dimension */
+    --chart-1: 168 80% 40%;
+    --chart-2: 214 60% 57%;
+    --chart-3: 32 95% 60%;
+    --chart-4: 262 60% 60%;
+    --chart-5: 190 80% 50%;
+    --chart-6: 215 15% 60%;
+
+    /* Score colors */
+    --score-good: 142 71% 45%;
+    --score-medium: 48 96% 53%;
+    --score-bad: 0 72% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', 'Space Grotesk', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', 'Space Grotesk', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  h1 { line-height: 1.1; }
+  h2 { line-height: 1.2; }
+  h3 { line-height: 1.3; }
+  p  { line-height: 1.75; }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50;
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 30px -5px hsl(214 60% 57% / 0.35);
+  }
+
+  .glow-score {
+    filter: drop-shadow(0 0 20px var(--glow-color, hsl(214 60% 57% / 0.4)));
+  }
+
+  .font-serif {
+    font-family: 'Lora', Georgia, serif;
+  }
+
+  .font-mono {
+    font-family: 'Space Mono', monospace;
+  }
+
+  /* ── Chordata Brand Utilities ── */
+  .section-label {
+    @apply text-blue-400 text-xs font-semibold tracking-widest uppercase mb-3 block;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    @apply text-2xl md:text-3xl font-bold leading-tight text-foreground;
+  }
+
+  .card-dark {
+    @apply bg-card/50 border border-border/40 rounded-xl
+    transition-all duration-200 ease-out
+    hover:bg-card/70 hover:border-border/60;
+  }
+
+  .btn-brand {
+    @apply bg-blue-500 text-white font-semibold rounded-lg
+    transition-all duration-200 ease-out
+    hover:bg-blue-600 hover:shadow-md
+    active:bg-blue-700
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
+  }
+
+  /* ── Fade-in animations ── */
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  /* ── Stagger delays ── */
+  .stagger-1 { animation-delay: 80ms; }
+  .stagger-2 { animation-delay: 160ms; }
+  .stagger-3 { animation-delay: 240ms; }
+  .stagger-4 { animation-delay: 320ms; }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: hsl(222 45% 11%); }
+::-webkit-scrollbar-thumb { background: hsl(222 20% 28%); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(222 20% 38%); }
+
+/* ── Selection ── */
+::selection {
+  background: hsl(214 60% 57% / 0.25);
+  color: hsl(210 40% 97%);
+}
+
+/* ── Smooth scroll ── */
+html { scroll-behavior: smooth; }
