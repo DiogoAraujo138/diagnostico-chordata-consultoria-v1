@@ -1,0 +1,30 @@
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos de editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Arquivos temporários
+*.log
+*.tmp
+*.temp
+.cache/
+
+# Dependências comuns
+node_modules/
+vendor/
+bower_components/
+
+# Arquivos de build
+dist/
+build/
+*.min.js
+*.min.css
